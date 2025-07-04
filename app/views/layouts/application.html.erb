@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Scheduler</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#datetimepicker", {
+          enableTime: true,
+          dateFormat: "Y-m-d H:i",
+          minDate: "today",
+          placeholder: "Select date and time..."
+        });
+      });
+    </script>
+    <style>
+      .gradient-bg {
+        background: linear-gradient(135deg, #1F2937, #111827);
+      }
+    </style>
+  </head>
+  <body class="gradient-bg min-h-screen font-sans text-white">
+    <%= render 'layouts/navigation' %>
+    <main class="container mx-auto p-6">
+      <%= yield %>
+    </main>
+    
+  </body>
+</html>

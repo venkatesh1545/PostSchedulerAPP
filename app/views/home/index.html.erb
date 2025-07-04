@@ -1,0 +1,56 @@
+<div class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
+  <!-- Navigation Bar -->
+  <nav class="p-6 flex justify-between items-center bg-gray-800 shadow-lg">
+    <h1 class="text-3xl font-bold text-blue-400">PostSchedulerApp</h1>
+    <div class="space-x-4">
+      <% unless user_signed_in? %>
+        <%= link_to 'Login', new_user_session_path, class: "px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white transition duration-300" %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: "px-4 py-2 bg-green-600 hover:bg-green-700 rounded text-white transition duration-300" %>
+      <% end %>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="py-20 px-6 text-center">
+    <h2 class="text-5xl font-bold mb-4">Welcome to PostSchedulerApp</h2>
+    <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+      Streamline your social media presence with PostSchedulerApp, the ultimate tool for scheduling and managing your LinkedIn posts effortlessly.
+    </p>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 px-6 bg-gray-800">
+    <h3 class="text-3xl font-bold text-center mb-12">What We Offer</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <!-- Card 1: Scheduling -->
+      <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:bg-gray-600 transition duration-300 transform hover:scale-105">
+        <h4 class="text-xl font-semibold mb-4">Easy Scheduling</h4>
+        <p class="text-gray-300">Schedule your LinkedIn posts at optimal times to maximize engagement, all from a single dashboard.</p>
+      </div>
+
+      <!-- Card 2: Analytics -->
+      <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:bg-gray-600 transition duration-300 transform hover:scale-105">
+        <h4 class="text-xl font-semibold mb-4">Performance Analytics</h4>
+        <p class="text-gray-300">Track the performance of your posts with detailed insights and improve your strategy.</p>
+      </div>
+
+      <!-- Card 3: Integration -->
+      <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:bg-gray-600 transition duration-300 transform hover:scale-105">
+        <h4 class="text-xl font-semibold mb-4">Seamless Integration</h4>
+        <p class="text-gray-300">Connect with LinkedIn effortlessly using our secure OAuth authentication for a smooth experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 px-6 text-center bg-gray-900">
+    <h3 class="text-2xl font-bold mb-4">Get Started Today!</h3>
+    <p class="text-gray-300 mb-6">Join thousands of users who trust PostSchedulerApp to manage their social media efficiently.</p>
+    <% unless user_signed_in? %>
+      <div class="space-x-4">
+        <%= link_to 'Sign Up', new_user_registration_path, class: "px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold transition duration-300" %>
+        <%= link_to 'Login', new_user_session_path, class: "px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition duration-300" %>
+      </div>
+    <% end %>
+  </section>
+</div>  

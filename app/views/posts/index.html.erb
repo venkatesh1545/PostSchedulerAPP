@@ -1,0 +1,33 @@
+<div class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-6 flex flex-col items-center justify-center">
+  <% if notice %>
+    <p class="text-green-400 mb-4"><%= notice %></p>
+  <% end %>
+  
+  <!-- Welcome Card -->
+  <div class="bg-gray-700 p-6 rounded-lg shadow-lg text-center mb-8">
+    <h1 class="text-3xl font-bold">Welcome, <%= @current_user.email %></h1>
+  </div>
+
+  <!-- Add Post Card -->
+  <div class="bg-gray-700 p-6 rounded-lg shadow-lg hover:bg-gray-600 transition duration-300 transform hover:scale-105 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Schedule Your Posts</h2>
+    <%= link_to 'Add Post', new_post_path, class: "px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white transition duration-300" %>
+  </div>
+
+  <!-- Posts List (if any) -->
+  <% if @posts.any? %>
+    <div class="mt-8 w-full max-w-4xl">
+      <h3 class="text-2xl font-semibold mb-4">Your Scheduled Posts</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <% @posts.each do |post| %>
+          <div class="bg-gray-700 p-4 rounded-lg shadow-lg hover:bg-gray-600 transition duration-300">
+            <p class="text-gray-300"><%= post.content %></p>
+            <p class="text-sm text-gray-400">Scheduled: <%= l post.scheduled_at, format: :short %></p>
+            <%= link_to 'Edit', edit_post_path(post), class: "text-blue-400 hover:text-blue-300 mr-2" %>
+            <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-red-400 hover:text-red-300" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+<div class="card">
+  <h1 class="heading">Reset Password</h1>
+  <p class="subheading">We'll email you instructions</p>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name)) do |f| %>
+    <div class="space-y-4 mt-6">
+      <div>
+        <%= f.label :email, "Email Address", class: "block mb-1" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter your email", class: "input" %>
+      </div>
+
+      <%= f.submit "Send Reset Instructions", class: "btn" %>
+    </div>
+  <% end %>
+
+  <div class="mt-4 text-center">
+    <%= link_to "Back to Log in", new_session_path(resource_name), class: "link" %>
+  </div>
+</div>

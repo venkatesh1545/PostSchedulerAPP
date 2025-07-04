@@ -1,0 +1,5 @@
+<nav class="p-6 flex justify-end items-center bg-gray-800 shadow-lg">
+  <% if user_signed_in? %>
+    <%= link_to 'Logout', logout_path, class: "px-4 py-2 bg-red-600 hover:bg-red-700 rounded text-white transition duration-300" %>
+  <% end %>
+</nav>

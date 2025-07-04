@@ -1,0 +1,35 @@
+<div class="card">
+  <h1 class="heading mb-1">Sign Up</h1>
+  <p class="subheading mb-3">Create your account to start scheduling</p>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="space-y-4 mt-4">
+      <div>
+        <%= f.label :email, "Email Address", class: "block mb-1 text-sm" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Enter your email", class: "input w-[90%] mx-auto" %>
+      </div>
+
+      <div>
+        <%= f.label :password, class: "block mb-1 text-sm" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Create a password", class: "input w-[90%] mx-auto" %>
+      </div>
+
+      <div>
+        <%= f.label :password_confirmation, class: "block mb-1 text-sm" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password", class: "input w-[90%] mx-auto" %>
+      </div>
+
+      <div>
+        <%= f.submit "Sign Up", class: "btn w-[90%] mx-auto" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mt-4 text-center text-sm">
+    <%= link_to "Already have an account? Log in", new_session_path(resource_name), class: "link" %>
+  </div>
+  <div class="mt-6 text-center">
+    <%= link_to "Sign up with LinkedIn", user_linkedin_omniauth_authorize_path, class: "btn bg-blue-600 hover:bg-blue-700" %>
+  </div>
+
+</div>
